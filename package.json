@@ -1,0 +1,28 @@
+{
+  "name": "tori-token",
+  "version": "0.0.1",
+  "description": "TORI Token Contract",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "truffle test --network testnet_token",
+    "migrate": "truffle migrate --network development --reset",
+    "migrate:testnet": "truffle migrate --network testnet_token --reset"
+  },
+  "author": "cuma",
+  "license": "ISC",
+  "homepage": "https://development.storichain.com/token#readme",
+  "dependencies": {
+    "openzeppelin-solidity": "^2.0.0",
+    "truffle-hdwallet-provider": "^1.0.6"
+  },
+  "devDependencies": {
+    "truffle-hdwallet-provider-privkey": "0.2.0",
+    "truffle-flattener": "^1.2.5",
+    "replace-in-file": "^3.4.0",
+    "bignumber.js": "^7.2.1",
+    "web3": "^1.0.0-beta.34"
+  }
+}
