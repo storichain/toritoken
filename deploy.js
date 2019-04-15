@@ -1,3 +1,4 @@
+require('dotenv-flow').config({default_node_env: 'ropsten'});
 const BigNumber = require('bignumber.js');
 const Tori = require('/scripts/Tori.js');
 global.Web3 = require('web3');
@@ -26,11 +27,7 @@ if (!totalSupply || totalSupply == 0) {
     error('TOTAL_SUPPLY = 0')
     return;
 }
-if (saleAmount + holderAmount != totalSupply) {
-    error('SALE_AMOUNT + HOLDER_AMOUNT != TOTAL_SUPPLY')
-    return;
-}
 
-console.log(colors.red.bold('> Deploy PXL contract'));
+console.log(colors.red.bold('Deploy ToriToken contract'));
 let tori = await Tori(process.env.TOTAL_SUPPLY);
 console.log(`TORI Token : ${tori.options.address}`);
