@@ -15,17 +15,20 @@
   "license": "ISC",
   "homepage": "https://development.storichain.com/token#readme",
   "dependencies": {
+    "bignumber": "^1.1.0",
+    "dotenv": "^7.0.0",
     "openzeppelin-solidity": "^2.0.0",
-    "truffle-hdwallet-provider": "^1.0.6"
+    "truffle-hdwallet-provider": "^1.0.6",
+    "web3": "^1.0.0-beta.35"
   },
   "devDependencies": {
-    "dotenv-flow": "0.1.0-beta.1",
     "array.chunk": "^1.1.0",
     "await-each": "^1.1.0",
-    "truffle-hdwallet-provider-privkey": "0.2.0",
-    "truffle-flattener": "^1.2.5",
-    "replace-in-file": "^3.4.0",
     "bignumber.js": "^7.2.1",
-    "web3": "^1.0.0-beta.34"
+    "cross-env": "^5.2.0",
+    "dotenv-flow": "0.1.0-beta.1",
+    "replace-in-file": "^3.4.0",
+    "truffle-flattener": "^1.2.5",
+    "truffle-hdwallet-provider-privkey": "0.2.0"
   }
 }

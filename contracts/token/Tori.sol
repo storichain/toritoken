@@ -1,4 +1,4 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.5.2;
 
 import "openzeppelin-solidity/contracts/token/ERC20/ERC20.sol";
 import "contracts/utils/Ownable.sol";
@@ -34,7 +34,7 @@ contract Tori is ERC20, Ownable {
         return (length > 0);
     }
 
-    function() public payable {
+    function() external payable {
         revert();
     }
 }

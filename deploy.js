@@ -1,11 +1,12 @@
-require('dotenv-flow').config({default_node_env: 'ropsten'});
+require('dotenv').config();
 const BigNumber = require('bignumber.js');
-const Tori = require('/scripts/Tori.js');
 global.Web3 = require('web3');
-global.web3 = new Web3(new Web3.providers.HttpProvider(`https://${process.env.NODE_ENV}.infura.io/`));
-global.log = (message) => console.log(colors.green.bold(message));
-global.error = (message) => console.log(colors.red.bold(message));
+global.web3 = new Web3(new Web3.providers.HttpProvider(process.env.INFURA_ENDPOINT));
+global.log = (message) => console.log(message);
+global.error = (message) => console.log(message);
 global.ether = (value) => new BigNumber(value * Math.pow(10, 18));
+
+const Tori = require('./scripts/Tori.js');
 
 if (process.env.PRIVATE_KEY) {
     web3.eth.accounts.wallet.add(process.env.PRIVATE_KEY);
@@ -28,6 +29,18 @@ if (!totalSupply || totalSupply == 0) {
     return;
 }
 
-console.log(colors.red.bold('Deploy ToriToken contract'));
-let tori = await Tori(process.env.TOTAL_SUPPLY);
-console.log(`TORI Token : ${tori.options.address}`);
+try {
+    console.log(']---]ToriToken contract[---[');
+    console.log(process.env.INFURA_ENDPOINT);
+
+    Tori(process.env.TOTAL_SUPPLY).then(function(res) {
+        console.log(res);
+        process.exit(0);
+    }).catch((error) => {
+        console.log(error);
+    });
+
+} catch(error) {
+    console.log(error);
+}
+// console.log(`TORI Token : ${tori.options.address}`);
